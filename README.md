@@ -8,15 +8,23 @@ This repository hosts high-quality, genome-scale metabolic models (GEMs) reconst
 
 Currently, the repository contains **over 400 species/strain-specific metabolic models**, encompassing industrial cell factories, opportunistic pathogens, and environmentally significant strains (e.g., *Aspergillus niger*, *Aspergillus terreus*, *Aspergillus tubingensis*).
 
----
-
-📂 Repository Structure
-```text
-├── models/                         # Core directory containing all GEMs
-│   ├── Aspergillus_rambellii_SRRC1468.xml
-│   ├── Aspergillus_terreus_ATCC_20542.xml
-│   └── ... (400+ SBML-formatted model files)
-└── README.md                       # Repository documentation
+🧬 Workflow
+441 Aspergillus strains (77 species)
+                │
+                ▼
+Pan-genome analysis (Orthogroups, COG, Phylogeny)
+                │
+                ▼
+Pan-genome-scale metabolic models
+                │
+                ▼
+Machine learning-assisted clustering of metabolic diversity
+                │
+                ▼
+Key reaction prediction (FSEOF ∩ FVSEOF) and FBA validation
+                │
+                ▼
+Candidate chassis identification and feasible reaction analysis
 
 📊 Model Specifications & Validation
 Scale & Diversity:
@@ -24,6 +32,51 @@ Scale & Diversity:
 * **Network Size:** The reconstructed global pan-metabolic network encompasses 4,202 metabolic reactions and 2,726 metabolites, built upon a pangenome of 24,182 gene families (where 75.9% represent variable genes driving high metabolic flexibility).
 * **Format:** SBML Level 3 Version 1 (.xml), fully compatible with COBRApy and The COBRA Toolbox.
 * **Predictive Reliability:** Achieved 73.28% accuracy in essential gene predictions and a 0.07 Mean Absolute Error (MAE) in growth prediction, ensuring highly robust computational simulation.
+
+📂 Repository Structure
+```text
+├── 1_Pangenome_analysis
+│   ├── Pangenome_analysis.py
+│   ├── Orthogroups.tsv
+│   ├── SpeciesTree_rooted.txt.contree
+│   ├── COG_count.csv
+│   ├── pangenome_curve_data.csv
+│
+├── 2_Metabolic_diversity_clustering
+│   ├── cluster.py
+│   ├── Growth_rate_Aerobic.xlsx
+│   ├── Growth_rate_Anaerobic.xlsx
+│   └── Synthesis_rate.xlsx
+│
+├── 3_Candidate_chassis_and_feasible_reactions
+│   ├── FSEOF_FVSEOF.py
+│   ├── Gradient_validation.py
+│   ├── Candidate_strains_Feasible_reactions.py
+│   ├── FSEOF_FVSEOF/
+│   ├── FBA_validation/
+│
+├── models/                         # Core directory containing all GEMs
+│   ├── Aspergillus_rambellii_SRRC1468.xml
+│   ├── Aspergillus_terreus_ATCC_20542.xml
+│   └── ... (400+ SBML-formatted model files)
+│
+└── README.md                       # Repository documentation
+
+🛠️ Software Requirements
+Python Packages
+Python 3.10
+COBRApy 0.29.0
+Pandas 2.2.2
+NumPy 1.26.4
+SciPy 1.13.1
+Scikit-learn 1.5.1
+Matplotlib 3.9.0
+Seaborn 0.13.2
+XGBoost 2.1.1
+Additional Software
+OrthoFinder 2.5.5
+eggNOG-mapper 2.1.12
+IQ-TREE 2.3.6
 
 🚀 Quick Start
 These models can be easily loaded and analyzed using Python (COBRApy) or MATLAB (The COBRA Toolbox) for Flux Balance Analysis (FBA).
