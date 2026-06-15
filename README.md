@@ -61,6 +61,7 @@ Scale & Diversity:
 │   └── ... (400+ SBML-formatted model files)
 │
 └── README.md                       # Repository documentation
+```
 
 🛠️ Software Requirements
 Python Packages
