@@ -61,7 +61,7 @@ Scale & Diversity:
 │   └── ... (400+ SBML-formatted model files)
 │
 └── README.md                       # Repository documentation
-```
+
 
 🛠️ Software Requirements
 Python Packages
@@ -98,6 +98,7 @@ print(f"Genes: {len(model.genes)}")
 # Run a baseline Flux Balance Analysis (FBA)
 solution = model.optimize()
 print(f"Growth Rate (Objective Value): {solution.objective_value:.4f}")
+```
 
 📈 Key Applications & Insights
 Based on constraint-based flux simulations, topology analysis, and machine learning clustering, these models enable several critical applications as demonstrated in our study:
